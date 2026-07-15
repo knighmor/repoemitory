@@ -3,7 +3,7 @@
 body {
     background-color: #CADBC8;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 15px;
+    font-size: 16px;
     justify-items: center;
 }
 
@@ -12,7 +12,7 @@ body {
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
-    height: 90%;
+    min-height: 90vh;
     width: 90%;
     margin: 12px;
     background-color: #94807e;
@@ -22,6 +22,7 @@ body {
 
 /*#region header bullshit -- will include the button to pop up the nav bar on mobile */
 .repoem-header {
+    flex: 1;
     display: flex;
     position: sticky;
     flex-flow: row nowrap;
@@ -57,19 +58,59 @@ body {
 .poem-nav {
     display: none;
     flex-flow: column nowrap;
-    background-color: #8D7471;
+    align-items: center;
+    justify-items: center;
+    background-color: #F8F4E3;
     border: 4px solid #816F68;
     border-radius: 8px;
-    margin: 4px;
+    box-shadow: 1px 1px burlywood;
+    margin: 8px;
     padding: 4px;
+    text-align: center;
+}
+
+.nav-header {
+    font-size: 20px;
+    color: #816F68;
+    text-shadow: 1px 1px burlywood;
+    padding: 2px;
 }
 
 .poem-list {
+    padding: 0;
     list-style-type: none;
+}
+
+.featured {
+    flex: 2;
+    background-color: #F8F4E3;
+    border: 2px solid #816F68;
+    border-radius: 8px;
+    margin: 4px;
+    width: 60%;
+}
+
+.submission {
+    flex: 2;
+    background-color: #F8F4E3;
+    border: 2px solid #816F68;
+    border-radius: 8px;
+    margin: 4px;
+    width: 60%;
+}
+
+.poem-list {
+    flex: 6;
+    background-color: #F8F4E3;
+    border: 2px solid #816F68;
+    border-radius: 8px;
+    margin: 4px;
+    width: 60%;
 }
 
 /* #region main content styling-- featured poems and all that jazz*/
 .content-container {
+    flex: 5;
     width: 95%;
 }
 
@@ -77,16 +118,41 @@ body {
     display: flex;
     flex-flow: column nowrap;
     margin: 4px 0px 4px 0px;
-    height: 60%;
 }
 
+/* featured poem bologna, very funny stuff here */
 .featured-poem {
+    flex: 1;
     background-color: #F8F4E3;
     border: 4px solid #816F68;
     box-shadow: 1px 1px burlywood;
     border-radius: 4px;
     margin: 4px 0px 4px 0px;
     padding: 4px;
+}
+
+#featured-poem-prime {
+    flex: 3;
+}
+
+.featured-poem-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.featured-poem-content {
+    flex: 2;
+    overflow: auto;
+}
+
+.featured-poem-video {
+    flex: 1;
+    align-self: center;
+    border: 4px solid #816F68;
+    border-radius: 4px;
+    height: 40%;
+    width: 80%;
+    margin: 4px;
 }
 
 .poem-link-featured {
@@ -118,4 +184,42 @@ body {
 
 .github-link {
     color: #F8F4E3;
+}
+
+@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+    .container {
+        margin: 28px;
+    }
+    .header-title {
+        padding: 10px 40px 10px 40px;
+        font-size: 50px;
+    }
+    .content-container {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .poem-nav-button {
+        display: none;
+    }
+    .poem-nav {
+        flex: 1;
+        display: block;
+        margin: 8px 8px 8px 0px
+    }
+    .index-container {
+        flex: 5;
+    }
+
+    .featured-poem-container {
+    flex-flow: row nowrap;
+    }
+
+    .featured-poem-video {
+        align-self: stretch;
+        height: 90%;
+        width: 40%;
+    }
 }
