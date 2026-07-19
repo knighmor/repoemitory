@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/knighmor/poetry-website-capstone#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

@@ -55,7 +55,7 @@ body {
 /* navigation bar-- hidden by default on mobile, javascript to make it appear on button click yippee */
 .poem-nav {
     display: none;
-    grid-template-rows: 1fr 1fr 2fr 2fr 8fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 8fr;
     justify-items: center;
     background-color: #F8F4E3;
     border: 4px solid #816F68;
@@ -68,6 +68,7 @@ body {
 
 .nav-header {
     font-size: 28px;
+    align-self: end;
     color: #816F68;
     text-shadow: 1px 1px burlywood;
     padding: 2px;
@@ -75,12 +76,16 @@ body {
 
 .poem-search {
     display: grid;
+    align-items: center;
     grid-template-columns: 2fr 1fr;
+    width: 80%;
 }
 
 .search-bar {
     border: 2px solid #8D7471;
     border-radius: 8px 0px 0px 8px;
+    min-width: 50px;
+    max-width: 350px;
 }
 
 .poem-search-button {
@@ -162,7 +167,7 @@ body {
     border: 4px solid #816F68;
     border-radius: 4px;
     height: 180px;
-    width: 320px;
+    width: 260px;
     margin: 4px;
 }
 
@@ -215,6 +220,7 @@ body {
         font-size: 18px;
     }
     .container {
+        grid-template-rows: 2fr 12fr 2fr;
         margin: 28px;
     }
     .header-title {

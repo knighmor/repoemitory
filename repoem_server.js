@@ -1,5 +1,6 @@
 "use strict";
 
+// server boot-up bologna-- using express. might change the port with project turn-in.
 const express = require ("express");
 const app = express();
 
