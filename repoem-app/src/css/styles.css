@@ -11,7 +11,7 @@ body {
     display: grid;
     grid-template-rows: 1fr 12fr 1fr;
     justify-items: center;
-    min-height: 80vh;
+    min-height: 60vh;
     width: 90%;
     min-width: 0;
     margin: 12px;
@@ -132,13 +132,13 @@ body {
 }
 
 /* #region main content styling-- featured poems and all that jazz*/
-.content-container {
+#content-container {
     width: 95%;
 }
 
 .index-container {
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
     margin: 4px 0px 4px 0px;
 }
 
@@ -227,7 +227,7 @@ body {
         padding: 10px 40px 10px 40px;
         font-size: 50px;
     }
-    .content-container {
+    #content-container {
         display: grid;
         grid-template-columns: 1fr 4fr;
     }
