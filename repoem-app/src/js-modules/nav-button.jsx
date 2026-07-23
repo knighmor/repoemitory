@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const NavButton = () => {
+    // need to figure out how to hook this into nav-bar.jsx
     const [dropped, setDropped] = useState(true);
     const [display, setDisplay] = useState("none");
     const [width, setWidth] = useState("0px");
