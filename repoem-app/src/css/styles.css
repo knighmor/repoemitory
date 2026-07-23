@@ -7,7 +7,7 @@ body {
     justify-items: center;
 }
 
-.container {
+#container {
     display: grid;
     grid-template-rows: 1fr 12fr 1fr;
     justify-items: center;
@@ -219,7 +219,7 @@ body {
     body {
         font-size: 18px;
     }
-    .container {
+    #container {
         grid-template-rows: 2fr 12fr 2fr;
         margin: 28px;
     }
