@@ -40,6 +40,7 @@ body {
 }
 
 .poem-nav-button {
+    position: absolute;
     justify-self: end;
     background-color: #8D7471;
     border: 2px solid burlywood;
@@ -54,7 +55,6 @@ body {
 
 /* navigation bar-- hidden by default on mobile, javascript to make it appear on button click yippee */
 .poem-nav {
-    display: none;
     grid-template-rows: 1fr 1fr 1fr 1fr 8fr;
     justify-items: center;
     background-color: #F8F4E3;
@@ -65,7 +65,14 @@ body {
     padding: 4px;
     text-align: center;
 }
-
+#desktop-nav {
+    display: none;
+}
+#mobile-nav {
+    display: none;
+    position: absolute;
+    height: 100vh;
+}
 .nav-header {
     font-size: 28px;
     align-self: end;
@@ -234,11 +241,12 @@ body {
     .poem-nav-button {
         display: none;
     }
-    .poem-nav {
+    #desktop-nav {
         display: grid;
-        margin: 8px 8px 8px 0px
     }
-
+    #mobile-nav {
+        display: none;
+    }
     .featured-poem-container {
         display: inline;
     }

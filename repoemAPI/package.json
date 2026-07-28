@@ -2,7 +2,7 @@
   "name": "repoemitory",
   "version": "1.0.0",
   "description": "",
-  "main": "repoem_server.js",
+  "main": "./src/repoem_server.js",
   "scripts": {
     "dev": "nodemon repoem_server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

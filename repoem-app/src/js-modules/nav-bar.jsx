@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import NavButton from './nav-button.jsx';
-
 const NavBar = () => {
     return (
         // navigation bar-- to be put into each page

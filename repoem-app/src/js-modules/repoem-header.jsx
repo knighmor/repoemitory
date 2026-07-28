@@ -3,16 +3,38 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import NavButton from './nav-button.jsx';
+import NavBar from "./nav-bar.jsx";
 
 const RepoemHeader = () => {
+    const [dropped, setDropped] = useState(true);
+    const [width, setWidth] = useState("0px");
+    const [display, setDisplay] = useState("none");
+
+    const showNavMenu = () => {
+        console.log('I have been clicked!');
+        setDropped(!dropped);
+        if (dropped === true) {
+            setWidth("368px");
+            setDisplay("block");
+        }
+        else {
+            setWidth("0px");
+            setDisplay("none");
+        }
+    }
+
     return (
         <header className = "repoem-header">
             <section className = "header-title">
                 <strong><a href = "./index.html">repoemitory.</a></strong>
             </section>
+            <div id = "mobile-nav" style={{width, display}}>
+                <NavBar />
+            </div> 
         {/* button to pull out navigation bar on mobile */}
-            <NavButton />
+            <button className = "poem-nav-button" onClick = {showNavMenu}>
+                    ☰
+            </button> 
         </header>
     ); 
 };   

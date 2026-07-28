@@ -15,14 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors(corsOptions));
 
-app.get("/api", (req, res) => {
-    res.json({
-        "poem" : {
-            "name": `BATTY`,
-            "author": `Shel Silverstein`,
-            "poem-text": `The baby bat Screamed out in fright, "Turn on the dark, I'm afraid of the light."`
-        },
-    });
+app.get("/data/poems", (req, res) => {
+    var poems = require ("./data/poems.json");
+    res.json(poems);
 });
 
 app.listen(port, () => {

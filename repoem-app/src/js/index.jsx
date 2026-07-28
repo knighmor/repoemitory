@@ -13,7 +13,9 @@ root.render(
     <StrictMode>
         <RepoemHeader />
         <div id = "content-container">
-            <NavBar />
+            <div id = "desktop-nav">
+                <NavBar />
+            </div>
             <IndexContainer />  
         </div>
         <RepoemFooter />
