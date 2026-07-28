@@ -1,9 +1,8 @@
 "use strict";
-
 async function fetchPoemsData() {
-    let response = await fetch('http://localhost:8080/data/poems');
-    let data = await response.json();
-    console.log(data);
+    let res = await fetch('http://localhost:8080/data/poems');
+    let data = await res.json();
+    return data;
 }
 
-fetchPoemsData();
+export default fetchPoemsData;

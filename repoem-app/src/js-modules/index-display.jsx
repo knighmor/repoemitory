@@ -2,6 +2,11 @@
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import fetchPoemsData from "../js-modules/data-retrieval";
+
+let poemsData = await fetchPoemsData();
+console.log(poemsData);
+
 const IndexContainer = () => {
     return (
         <section className = "index-container">

@@ -25,3 +25,5 @@ app.listen(port, () => {
     console.log("Press Ctrl+C to end this process.");
 })
 // #endregion
+
+// current values for poems.json: "name":,"poem-id":,"views":,"likes":,"author":,"poem-text":,"youtube-video":,
