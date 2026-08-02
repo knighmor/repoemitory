@@ -1,16 +1,34 @@
 "use strict";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import fetchPoemsData from "../js-modules/data-retrieval";
-
-let poemsData = await fetchPoemsData();
-poemsData.sort((a,b) => a.likes - b.likes);
-console.log(poemsData);
-const topThree = poemsData.slice(Math.max(poemsData.length - 3, 0)).reverse();
-console.log(topThree);
-
+// actual index content container stuff for index.html
 const IndexContainer = () => {
+    // #region beginning of loading poem API stuff-- using UseEffect, includes a thingy for data-loading
+    const [poemsData, setPoemsData] = useState([]);
+    const [dataIsLoaded, setDataIsLoaded] = useState(false);
+
+    useEffect(() => {
+            fetch('http://localhost:8080/data/poems')
+            .then((res) => res.json())
+            .then((json) => {
+                setPoemsData(json);
+                setDataIsLoaded(true);
+            });
+    }, []);
+
+    if (!dataIsLoaded) {
+        return (
+            <div>
+                <h1>Please wait...</h1>
+            </div>
+        );
+    }
+
+    // #endregion ending of loading API stuff
+    
+    poemsData.sort((a,b) => a.likes - b.likes);
+    const topThree = poemsData.slice(Math.max(poemsData.length - 3, 0)).reverse();
 
     return (
         <section className = "index-container">
