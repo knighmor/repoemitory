@@ -1,16 +1,24 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../css/styles.css";
+import "../css/display.css";
 
 import NavBar from "../js-modules/nav-bar";
-import IndexContainer from "../js-modules/index-display"
+import RepoemHeader from "../js-modules/repoem-header";
+import RepoemFooter from "../js-modules/repoem-footer";
+import PoemDisplay from "../js-modules/poem-display";
 
-const root = createRoot(document.getElementById("content-container"));
+const root = createRoot(document.getElementById("container"));
 console.log(root);
 
 root.render(
     <StrictMode>
-        <NavBar />
-        <IndexContainer />
+        <RepoemHeader />
+        <div id = "content-container">
+            <div id = "desktop-nav">
+                <NavBar />
+            </div>
+            <PoemDisplay />
+        </div>
+        <RepoemFooter />
     </StrictMode>
 )

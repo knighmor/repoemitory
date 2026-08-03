@@ -25,10 +25,10 @@ const IndexContainer = () => {
         );
     }
 
-    // #endregion ending of loading API stuff
-    
     poemsData.sort((a,b) => a.likes - b.likes);
     const topThree = poemsData.slice(Math.max(poemsData.length - 3, 0)).reverse();
+    // #endregion ending of loading API stuff
+    
 
     return (
         <section className = "index-container">
