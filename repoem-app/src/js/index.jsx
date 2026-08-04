@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import "../css/styles.css";
 
 import NavBar from "../js-modules/nav-bar";
-import IndexContainer from "../js-modules/index-display";
 import RepoemHeader from "../js-modules/repoem-header";
 import RepoemFooter from "../js-modules/repoem-footer";
+import IndexContainer from "../js-modules/index-display";
 
 const root = createRoot(document.getElementById("container"));
 

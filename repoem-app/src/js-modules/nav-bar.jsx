@@ -34,11 +34,8 @@ const NavBar = () => {
                 <section className = "nav-header">
                     <strong>Navigation</strong>
                 </section>
-                <section className = "poem-search">
-                    <input type = "search" className = "search-bar"></input> <button className = "poem-search-button">🔍</button>
-                </section>
                 <section className = "featured">
-                    <a href = "./display.html">display page access for now</a>
+                    <a href = "./display.html">poem collection</a>
                 </section>
                 <section className = "submission">
                     <a href = "./submit.html">submit a poem</a>

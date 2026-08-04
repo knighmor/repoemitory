@@ -88,7 +88,8 @@ body {
     width: 80%;
 }
 
-.search-bar {
+/* #region for when search bar is actually implemented-- for after the completion of minimal project
+    .search-bar {
     border: 2px solid #8D7471;
     border-radius: 8px 0px 0px 8px;
     min-width: 50px;
@@ -100,7 +101,7 @@ body {
     border: 2px solid #8D7471;
     border-radius: 0px 8px 8px 0px;
     color: #F8F4E3;
-}
+} #endregion */
 
 .featured {
     background-color: #8D7471;

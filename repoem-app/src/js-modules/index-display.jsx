@@ -29,6 +29,13 @@ const IndexContainer = () => {
     const topThree = poemsData.slice(Math.max(poemsData.length - 3, 0)).reverse();
     // #endregion ending of loading API stuff
     
+    // #region setting up text format parsing using mapping, a bit more convoluted due to how this is set up
+        const PoemText = (index) => {
+        const ArrangedText = topThree[index].text.map((line) => {
+            return <div>{line}</div>
+        });
+        return ArrangedText;
+    };
 
     return (
         <section className = "index-container">
@@ -40,7 +47,7 @@ const IndexContainer = () => {
             <section className = "featured-poem-container">
                 <iframe src={topThree[0].embed} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" className="featured-poem-video" allowFullScreen></iframe>
                 <section className = "featured-poem-content">
-                    {topThree[0].text}
+                    {PoemText(0)}
                 </section>
             </section>
             </article>
@@ -49,11 +56,11 @@ const IndexContainer = () => {
                 <section className = "next-two-poems">
                     <article className = "featured-poem">
                         <a href = "display.html" className = "poem-link">{topThree[1].name}</a>
-                        <p className = "poem-two-text-preview">{topThree[1].text}<em className = "etc"> ...</em></p> 
+                        <p className = "poem-two-text-preview">{PoemText(1)}<em className = "etc"> ...</em></p> 
                     </article>
                     <article className = "featured-poem">
                         <a href = "display.html" className = "poem-link">{topThree[2].name}</a>
-                        <p className = "poem-three-text-preview">{topThree[2].text}<em className = "etc"> ...</em></p>
+                        <p className = "poem-three-text-preview">{PoemText(2)}<em className = "etc"> ...</em></p>
                     </article>
                 </section>
             </section>

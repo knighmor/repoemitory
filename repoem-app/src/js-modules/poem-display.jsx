@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const PoemDisplay = () => {
-// #region inserting the repoemAPI fetch requestion into here
+// #region inserting the repoemAPI fetch requestion into here, along with variables
     const [poemsData, setPoemsData] = useState([]);
     const [dataIsLoaded, setDataIsLoaded] = useState(false);
     const [poemId, setPoemId] = useState(0);
+    const [backDisplay, setBackDisplay] = useState("none");
+    const [forwardDisplay, setForwardDisplay] = useState("block");
 
     useEffect(() => {
             fetch('http://localhost:8080/data/poems')
@@ -26,45 +28,73 @@ const PoemDisplay = () => {
     }
 // #endregion
 
+// #region setting up function to toggle videos based on if there's a link in the json - a simple if-else equation
+    const YoutubeVideo = () => {
+        if (poemsData[poemId].embed === null) {
+            return;
+        }
+        return (
+            <iframe src={poemsData[poemId].embed} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" className="featured-poem-video" allowFullScreen></iframe>
+        )
+    }
+// #endregion
+
 // #region setting up moving between entries in the poemsData rah rah
     // this will increment the poemId by 1
     const handleClickAdd = () => {
         if (poemId === poemsData.length - 1) {
+            setForwardDisplay("none");
             console.log(poemId);
             return;
         }
         setPoemId(poemId + 1);
+        setBackDisplay("block");
         console.log(poemId);
     }
     // this will decrement the poemId by 1
     const handleClickRemove = () => {
         if (poemId === 0) {
+            setBackDisplay("none");
             console.log(poemId);
             return;
         }
         setPoemId(poemId - 1);
+        setForwardDisplay("block");
         console.log(poemId);
     }
+// #endregion
+
+// #region setting up way to hopefully set up some formatting for poem text using array mapping
+    const PoemText = () => {
+        const ArrangedText = poemsData[poemId].text.map((line) => {
+            return <div>{line}</div>
+        });
+        return ArrangedText;
+    };
 // #endregion
 
 return (
     <section className = "display-container">
         <nav className = "id-navigation">
-            <button className = "id-nav" id = "back-button" onClick = {handleClickRemove}></button>
-            <button className ="id-nav" onClick = {handleClickAdd}></button>
+            <button className = "id-nav" id = "back-button" onClick = {handleClickRemove} style = {{display: backDisplay}}>Back.</button>
+            {/* style = {{display: "backDisplay"}} */}
+            <button className ="id-nav" id = "forward-button" onClick = {handleClickAdd} style = {{display: forwardDisplay}}>Next.</button>
+            {/* style = {{display: {forwardDisplay}}} */}
         </nav>
-        <div className = "poem-container">
-            <div className = "poem-title">
-               {poemsData[poemId].name} by {poemsData[poemId].author}
+        <section className = "poem-content">
+            <div className = "poem-container">
+                <div className = "poem-title">
+                <strong>{poemsData[poemId].name} by {poemsData[poemId].author}</strong>
+                </div>
+                <div className = "poem-text">
+                    <PoemText />
+                </div>
             </div>
-            <div className = "poem-text">
-                {poemsData[poemId].text}
+            <div className = "poem-video-and-definitions">
+                <YoutubeVideo />
+                <div className ="word-define-box">e</div>
             </div>
-        </div>
-        <div className = "poem-video-and-definitions">
-            <iframe src={poemsData[poemId].embed} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" className="featured-poem-video" allowFullScreen></iframe>
-            <div className ="word-define-box">e</div>
-        </div>
+        </section>      
     </section>
 )
     
