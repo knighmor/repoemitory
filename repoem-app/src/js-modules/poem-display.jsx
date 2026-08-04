@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const PoemDisplay = () => {
-// #region inserting the repoemAPI fetch requestion into here, along with variables
+// #region inserting the repoemAPI fetch request into here, along with variables
     const [poemsData, setPoemsData] = useState([]);
     const [dataIsLoaded, setDataIsLoaded] = useState(false);
     const [poemId, setPoemId] = useState(0);
+    const [word, setWord] = useState("");
     const [backDisplay, setBackDisplay] = useState("none");
     const [forwardDisplay, setForwardDisplay] = useState("block");
 
@@ -25,6 +26,49 @@ const PoemDisplay = () => {
                 <h1>Please wait...</h1>
             </div>
         );
+    }
+// #endregion
+
+// #region integrating DictionaryAPI fetch request along with the definition box into here!
+    const DefinitionBox = () => {
+        const [wordData, setWordData] = useState([]);
+        const [wordIsLoaded, setWordIsLoaded] = useState(false);
+
+        useEffect(() => {
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+            .then((res) => res.json())
+            .then((json) => {
+                setWordData(json);
+                setWordIsLoaded(true);
+                });
+        }, []);
+
+        if (!wordIsLoaded) {
+            return (
+                <div>
+                    <strong>No word selected.</strong>
+                </div>
+            )
+        }
+
+        return (
+            <section>
+                <a href = {wordData[0].sourceUrls[0]}>{wordData[0].word}</a>
+            </section>
+        )
+    }
+// #endregion
+
+// #region setting up word selection to set up for Definition Box using the window selection method
+    const clickForWord = () => {
+        const sel = window.getSelection();
+        const text = sel.anchorNode.textContent;
+        const lmatch = text.substr(0, sel.anchorOffset).match(/[\s\S]*\s/);
+        const offset = (lmatch ? lmatch[0].length : 0);
+        const match = text.substr(offset).match(/\w+/);
+
+        console.log(match && match[0]);
+        setWord(match);
     }
 // #endregion
 
@@ -86,13 +130,15 @@ return (
                 <div className = "poem-title">
                 <strong>{poemsData[poemId].name} by {poemsData[poemId].author}</strong>
                 </div>
-                <div className = "poem-text">
+                <div className = "poem-text" onClick = {clickForWord}>
                     <PoemText />
                 </div>
             </div>
             <div className = "poem-video-and-definitions">
                 <YoutubeVideo />
-                <div className ="word-define-box">e</div>
+                <div className ="word-define-box">
+                    <DefinitionBox />
+                </div>
             </div>
         </section>      
     </section>
