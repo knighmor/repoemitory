@@ -36,30 +36,57 @@ const PoemDisplay = () => {
 
         useEffect(() => {
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {throw new error(res.status)}
+                else {return res.json()}})
             .then((json) => {
+                console.log(json);
                 setWordData(json);
                 setWordIsLoaded(true);
-                });
+                })
+            .catch((e) => {
+                setWordIsLoaded(false);
+                console.error("Error retrieving Word Data.")})
         }, []);
 
+        const Synonyms = () => {
+            const ArrangedText = wordData[0].meanings[0].synonyms.map((word) => {
+                return <sec>{word}, </sec>
+            });
+            return ArrangedText;
+        };
+
+        const Definition = () => {
+            if (word == "blood") {
+                 return (
+                  <p>{wordData[0].meanings[1].definitions[0].definition}</p>  
+                        )}
+                else { 
+                    return (
+                        <p>{wordData[0].meanings[0].definitions[0].definition}</p> 
+                            )}
+            }
+
         if (!wordIsLoaded) {
+            console.log("No word selected.");
             return (
                 <div>
                     <strong>No word selected.</strong>
                 </div>
             )
         }
-
         return (
             <section>
-                <a href = {wordData[0].sourceUrls[0]}>{wordData[0].word}</a>
+                <strong><a href = {wordData[0].sourceUrls[0]}>{wordData[0].word}</a></strong>
+                <em><p><strong>Synonyms-</strong> <Synonyms /></p></em>
+                <Definition /><br />
+                <p><em>Disclaimer: these definitions and synonyms are pulled from another source and have multiple variants. If they do not seem accurate, please use the link provided for further information.</em></p>
             </section>
-        )
+        );
     }
 // #endregion
 
-// #region setting up word selection to set up for Definition Box using the window selection method
+// #region setting up word selection to set up for Definition Box using the window selection method -- ask about how to get apostrophes and dashes including in word selection
     const clickForWord = () => {
         const sel = window.getSelection();
         const text = sel.anchorNode.textContent;
@@ -86,25 +113,29 @@ const PoemDisplay = () => {
 // #region setting up moving between entries in the poemsData rah rah
     // this will increment the poemId by 1
     const handleClickAdd = () => {
-        if (poemId === poemsData.length - 1) {
-            setForwardDisplay("none");
-            console.log(poemId);
-            return;
-        }
         setPoemId(poemId + 1);
-        setBackDisplay("block");
         console.log(poemId);
+    }
+    // this will proc the forward button whenever poemId is below max
+    const ForwardButton = () => {
+        if (poemId < poemsData.length - 1) {
+            return (
+                    <button className ="id-nav" id = "forward-button" onClick = {handleClickAdd}>Next.</button>
+            )
+        }
     }
     // this will decrement the poemId by 1
     const handleClickRemove = () => {
-        if (poemId === 0) {
-            setBackDisplay("none");
-            console.log(poemId);
-            return;
-        }
         setPoemId(poemId - 1);
-        setForwardDisplay("block");
         console.log(poemId);
+    }
+    // this will proc the back button whenever poemId is above min
+    const BackButton = () => {
+        if (poemId > 0) {
+            return (
+                <button className = "id-nav" id = "back-button" onClick = {handleClickRemove}>Back.</button>       
+            )
+        }
     }
 // #endregion
 
@@ -120,10 +151,8 @@ const PoemDisplay = () => {
 return (
     <section className = "display-container">
         <nav className = "id-navigation">
-            <button className = "id-nav" id = "back-button" onClick = {handleClickRemove} style = {{display: backDisplay}}>Back.</button>
-            {/* style = {{display: "backDisplay"}} */}
-            <button className ="id-nav" id = "forward-button" onClick = {handleClickAdd} style = {{display: forwardDisplay}}>Next.</button>
-            {/* style = {{display: {forwardDisplay}}} */}
+            <BackButton />
+            <ForwardButton />
         </nav>
         <section className = "poem-content">
             <div className = "poem-container">
