@@ -5,6 +5,7 @@ import "../css/styles.css";
 import NavBar from "../js-modules/nav-bar";
 import RepoemHeader from "../js-modules/repoem-header";
 import RepoemFooter from "../js-modules/repoem-footer";
+import SubmissionForm from "../js-modules/submit";
 
 const root = createRoot(document.getElementById("container"));
 console.log(root);
@@ -16,7 +17,7 @@ root.render(
             <div id = "desktop-nav">
                 <NavBar />
             </div>
-            {/* submission container goes here */}
+                <SubmissionForm />
         </div>
         <RepoemFooter />
     </StrictMode>
