@@ -37,6 +37,8 @@ const IndexContainer = () => {
         return ArrangedText;
     };
 
+    // #endregion
+
     return (
         <section className = "index-container">
             {/* the featured-featured poem, will be the "most viewed" */}
