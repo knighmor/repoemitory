@@ -34,7 +34,35 @@ This is a primarily JavaScript/CSS application with HTML elements, with both a f
 | README.md | You are here! This includes any information I wish to share about the project, along with instructions on how to get it running! |
 
 ## How to Download/Use
-1. WIP
+1. **Download Git and Node.js**
+
+    A. Git Download
+    
+        1. Go to the official Git website for downloads: https://git-scm.com/install/.
+
+        2. Click the version applicable to your Operating System. From there, you can click the link provided upmost for downloading.
+
+        3. Open the Git installer and run through the setup pop-ups.
+            - *Note: You can simply hit next through most of the process. It is recommended to select "Additional icons" when on the Select Components tab however, along with selecting "Override the default branch name for new repositores" on the name adjustments for repositories tab.*
+
+        4. You can test if your download is successful by either opening up the Command Prompt for your OS. From there, you can type in ``git``. If it returns the list of commands and usage details for it, your download was successful!
+
+    B. Node.js Download
+
+        1. Go to the official Node.js website for downloads: https://nodejs.org/en.
+
+        2. Open the Node.js installer and run through the setup pop-ups.
+            - *Note: You can simply hit next through most of the process. Do not mess with any of the options unless you know what you are doing.*
+
+        3. You can test if your download is successful by either opening up the Command Prompt for your OS, or any other Command Consoles you might have (i.e. Git). From there, you can type in ``node --version``. If it returns the current version, your download was successful!
+
+2. **Open up Git and clone the repository.**
+    Note: It is recommended to set up a 'Projects' folder beforehand, using the "mkdir" command on your root directory.<br>
+    ``git clone https://github.com/knighmor/repoemitory.git`` 
+
+3. **Right click on the Git title bar and select "New Window."**
+    Note: Keep both Git windows open, you will need two terminals for the next steps.
+    ![Image of two Git command windows. (./readme-imgs/gitcommandwindow.png "Git Command Windows")]
 
 ## Goals for the Future
 | **Goal** | **Explanation** |
@@ -42,5 +70,5 @@ This is a primarily JavaScript/CSS application with HTML elements, with both a f
 | WIP | WIP |
 
 ## Credits for Resources Used
-• Credit to DictionaryAPI-- it is easy to use and free! https://dictionaryapi.dev
+• Credit to DictionaryAPI-- it is easy to use and free! https://dictionaryapi.dev <br>
 • Credit to rezafir-7 for their free to use Book Icon! https://pixabay.com/illustrations/book-icon-template-stack-of-books-7486253/
