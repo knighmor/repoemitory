@@ -14,7 +14,7 @@ yup.setLocale({
         required: "This field is required.",
     },
     string: {
-        max: `This field cannot exceed ${yup.max} characters.`,
+        max: `This field has exceed its maximum characters.`,
         matches: `This field requires either "embed" or "None".`,
     },
 });
@@ -105,6 +105,7 @@ const SubmissionForm = () => {
     // #endregion
 
     return (
+        <div id = "form-container">
         <form 
         onSubmit={handleSubmit(onSubmit)}
         onSuccess={() => {
@@ -133,7 +134,7 @@ const SubmissionForm = () => {
             <div className="form-part">
                 <label for="link">Poem Source: </label>
                 <input placeholder="Link to poem here." {...register("link")} />
-                {errors.link && <p className="Error">{errors.author.message}</p>}
+                {errors.link && <p className="Error">{errors.link.message}</p>}
             </div>
             <div className="form-part">
                 <label for="embed">Youtube Embed Here (Use "None" if not applicable/available): </label>
@@ -141,15 +142,15 @@ const SubmissionForm = () => {
                 {errors.embed && <p className="Error">{errors.embed.message}</p>}
             </div>
             <div className="form-part">
-                <label for="text">Poem Here: </label>
-                <textarea placeholder="Poem text here." {...register("text")} />
+                <textarea placeholder="Enter poem here." {...register("text")} />
                 {errors.text && <p className="Error">{errors.text.message}</p>}
             </div>
             <div className="form-handling">
-               <input type="submit" value="Submit Poem!"/>
-               <input type="reset" value="Reset Form."/>
+               <input type="submit" className="form-button" id="submit" value="Submit Poem!"/>
+               <input type="reset" className="form-button" id="reset" value="Reset Form."/>
             </div>
         </form>
+        </div>
     )
 };
 

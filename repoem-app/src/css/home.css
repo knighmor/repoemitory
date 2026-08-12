@@ -21,10 +21,10 @@
 .featured-poem-container {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
 }
 
 .featured-poem-video {
-    justify-self: right;
     order: 1;
     border: 4px solid #816F68;
     border-radius: 4px;

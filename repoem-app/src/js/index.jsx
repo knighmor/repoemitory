@@ -17,9 +17,7 @@ root.render(
             <div id = "desktop-nav">
                 <NavBar />
             </div>
-            <div id = "insert-container">
-                <IndexContainer />
-            </div>  
+                <IndexContainer /> 
         </div>
         <RepoemFooter />
     </StrictMode>

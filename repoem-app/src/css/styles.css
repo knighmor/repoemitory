@@ -10,6 +10,10 @@ body {
 #container {
     display: flex;
     flex-flow: column nowrap;
+    min-width: 80vw;
+    max-width: 80vw;
+    min-height: 100vh;
+    max-height: 100vh;
 }
 
 /* #region CSS rules for the header */
@@ -24,11 +28,22 @@ body {
     border-radius: 0px 0px 8px 8px;
 }
 #header-title {
+    display: flex;
+    flex-flow: row nowrap;
     justify-self: start;
+    align-self: center;
+    justify-items: start;
+    align-items: center;
     font-size: 30px;
     color: #F8F4E3;
     text-shadow: 1px 1px burlywood;
-    padding: 10px;
+}
+#book-logo {
+    height: 127px;
+    width: 96px;
+}
+#home-link {
+    color: #F8F4E3;
 }
 #poem-nav-button {
     position: absolute;
@@ -92,7 +107,7 @@ body {
         border: 2px solid burlywood;
         border-radius: 8px;
         margin: 4px;
-        height: 96px;
+        height: 48px;
         width: 264px;
     }
     .nav-link {
