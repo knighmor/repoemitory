@@ -1,7 +1,7 @@
 'use strict';
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 const RepoemFooter = () => {
     return (

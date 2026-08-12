@@ -1,7 +1,7 @@
 "use strict";
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import NavBar from "./nav-bar.jsx";
 import book from "../img/rezafir7-book.png";

@@ -43,7 +43,7 @@ const IndexContainer = () => {
         <section className = "index-container">
             {/* the featured-featured poem, will be the "most viewed" */}
             <article className = "featured-poem" id = "featured-poem-prime">
-                <a href = "display.html" className = "poem-link-featured" id = "prime-poem-title">
+                <a href = {topThree[0].link} className = "poem-link-featured" id = "prime-poem-title">
                     <strong>{topThree[0].name}</strong>
                 </a>
             <section className = "featured-poem-container">
@@ -57,7 +57,7 @@ const IndexContainer = () => {
             {/* the next two poems in "engagement/views" */}
                 <section className = "next-two-poems">
                     <article className = "featured-poem">
-                        <a href = "display.html" className = "poem-link">{topThree[1].name}</a>
+                        <a href = {topThree[1].link} className = "poem-link">{topThree[1].name}</a>
                         <p className = "poem-two-text-preview">
                             <div>{topThree[1].text[0]}</div>
                             <div>{topThree[1].text[1]}</div>
@@ -71,7 +71,7 @@ const IndexContainer = () => {
                             <em className = "etc"> ...</em></p> 
                     </article>
                     <article className = "featured-poem">
-                        <a href = "display.html" className = "poem-link">{topThree[2].name}</a>
+                        <a href = {topThree[2].link} className = "poem-link">{topThree[2].name}</a>
                         <p className = "poem-three-text-preview">
                             <div>{topThree[2].text[0]}</div>
                             <div>{topThree[2].text[1]}</div>

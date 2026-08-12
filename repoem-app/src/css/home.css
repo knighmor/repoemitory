@@ -1,5 +1,6 @@
 @import url("styles.css");
 
+/* This is all the CSS rules for the Home Page. */
 .index-container {
     display: flex;
     flex-flow: column nowrap;
