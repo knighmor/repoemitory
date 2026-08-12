@@ -62,7 +62,7 @@ This is a primarily JavaScript/CSS application with HTML elements, with both a f
 
 3. **Right click on the Git title bar and select "New Window."**
     Note: Keep both Git windows open, you will need two terminals for the next steps.
-    ![Image of two Git command windows. (./readme-imgs/gitcommandwindow.png "Git Command Windows")]
+    ![Image of two Git command windows.](./readme-imgs/gitcommandwindow.png "Git Command Windows")
 
 ## Goals for the Future
 | **Goal** | **Explanation** |
