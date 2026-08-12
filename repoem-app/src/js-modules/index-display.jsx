@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 
 // actual index content container stuff for index.html
 const IndexContainer = () => {
-    // #region beginning of loading poem API stuff-- using UseEffect, includes a thingy for data-loading
+    // #region beginning of loading poem API stuff-- using UseEffect, with a "loading screen" for when data is being fetched
     const [poemsData, setPoemsData] = useState([]);
     const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
@@ -35,7 +35,7 @@ const IndexContainer = () => {
             return <div>{line}</div>
         });
         return ArrangedText;
-    };
+        };
 
     // #endregion
 
@@ -58,11 +58,31 @@ const IndexContainer = () => {
                 <section className = "next-two-poems">
                     <article className = "featured-poem">
                         <a href = "display.html" className = "poem-link">{topThree[1].name}</a>
-                        <p className = "poem-two-text-preview">{PoemText(1)}<em className = "etc"> ...</em></p> 
+                        <p className = "poem-two-text-preview">
+                            <div>{topThree[1].text[0]}</div>
+                            <div>{topThree[1].text[1]}</div>
+                            <div>{topThree[1].text[2]}</div>
+                            <div>{topThree[1].text[3]}</div>
+                            <div>{topThree[1].text[4]}</div>
+                            <div>{topThree[1].text[5]}</div>
+                            <div>{topThree[1].text[6]}</div>
+                            <div>{topThree[1].text[7]}</div>
+                            <div>{topThree[1].text[8]}</div>
+                            <em className = "etc"> ...</em></p> 
                     </article>
                     <article className = "featured-poem">
                         <a href = "display.html" className = "poem-link">{topThree[2].name}</a>
-                        <p className = "poem-three-text-preview">{PoemText(2)}<em className = "etc"> ...</em></p>
+                        <p className = "poem-three-text-preview">
+                            <div>{topThree[2].text[0]}</div>
+                            <div>{topThree[2].text[1]}</div>
+                            <div>{topThree[2].text[2]}</div>
+                            <div>{topThree[2].text[3]}</div>
+                            <div>{topThree[2].text[4]}</div>
+                            <div>{topThree[2].text[5]}</div>
+                            <div>{topThree[2].text[6]}</div>
+                            <div>{topThree[2].text[7]}</div>
+                            <div>{topThree[2].text[8]}</div>
+                            <em className = "etc"> ...</em></p>
                     </article>
                 </section>
             </section>

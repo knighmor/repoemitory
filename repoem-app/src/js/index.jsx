@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import "../css/styles.css";
+import "../css/home.css";
 
 import NavBar from "../js-modules/nav-bar";
 import RepoemHeader from "../js-modules/repoem-header";
@@ -17,7 +17,9 @@ root.render(
             <div id = "desktop-nav">
                 <NavBar />
             </div>
-            <IndexContainer />  
+            <div id = "insert-container">
+                <IndexContainer />
+            </div>  
         </div>
         <RepoemFooter />
     </StrictMode>

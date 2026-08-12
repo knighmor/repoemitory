@@ -24,15 +24,15 @@ const RepoemHeader = () => {
     }
 
     return (
-        <header className = "repoem-header">
-            <section className = "header-title">
+        <header id = "repoem-header">
+            <section id = "header-title">
                 <strong><a href = "./index.html">repoemitory.</a></strong>
             </section>
             <div id = "mobile-nav" style={{width, display}}>
                 <NavBar />
             </div> 
         {/* button to pull out navigation bar on mobile */}
-            <button className = "poem-nav-button" onClick = {showNavMenu}>
+            <button id = "poem-nav-button" onClick = {showNavMenu}>
                     ☰
             </button> 
         </header>

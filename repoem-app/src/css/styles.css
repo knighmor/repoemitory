@@ -1,47 +1,38 @@
 @import url("reset.css");
 
+/* the main container itself for each page */
 body {
     background-color: #CADBC8;
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     justify-items: center;
 }
-
 #container {
-    display: grid;
-    grid-template-rows: 1fr 12fr 1fr;
-    justify-items: center;
-    min-height: 60vh;
-    width: 90%;
-    min-width: 0;
-    margin: 12px;
-    background-color: #94807e;
-    border: 4px solid #816F68;
-    border-radius: 8px;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
-/*#region header bullshit -- will include the button to pop up the nav bar on mobile */
-.repoem-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    margin: 10px 4px 0px 4px;
+/* #region CSS rules for the header */
+#repoem-header {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+    position: sticky;
+    top: 0px;
     background-color: #816F68;
     border: 2px solid burlywood;
-    border-radius: 8px;
-    width: 95%;
+    border-radius: 0px 0px 8px 8px;
 }
-
-.header-title {
+#header-title {
     justify-self: start;
     font-size: 30px;
     color: #F8F4E3;
     text-shadow: 1px 1px burlywood;
     padding: 10px;
 }
-
-.poem-nav-button {
+#poem-nav-button {
     position: absolute;
-    justify-self: end;
+    right: 0px;
     background-color: #8D7471;
     border: 2px solid burlywood;
     color: #F8F4E3;
@@ -53,215 +44,118 @@ body {
 } 
 /* #endregion */
 
-/* navigation bar-- hidden by default on mobile, javascript to make it appear on button click yippee */
-.poem-nav {
-    grid-template-rows: 1fr 1fr 1fr 1fr 8fr;
-    justify-items: center;
-    background-color: #F8F4E3;
-    border: 4px solid #816F68;
-    border-radius: 8px;
-    box-shadow: 1px 1px burlywood;
-    margin: 4px 8px 4px 0px;
-    padding: 4px;
+/* #region CSS rules to set up Content Container for Mobile */
+    #content-container {
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 3;
+    }
+/* #endregion */
+
+/* #region CSS rules for the Navigation Bar */
+    #desktop-nav {
+        display: none;
+    }
+    #mobile-nav {
+        display: none;
+        position: absolute;
+    }
+    .poem-nav {
+        display: flex;
+        flex-flow: column nowrap;
+        left: 0px;
+        background-color: #F8F4E3;
+        border: 4px solid #816F68;
+        border-radius: 8px;
+        box-shadow: 1px 1px burlywood;
+        margin: 4px 8px 4px 0px;
+        padding: 4px;
+        text-align: center;
+    }
+    .nav-header {
+        font-size: 28px;
+        align-self: center;
+        color: #816F68;
+        text-shadow: 1px 1px burlywood;
+        padding: 2px;
+    }
+    .not-nav-header {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+    }
+    .nav-buttons {
+        justify-self: flex-start;
+    }
+    .nav-button {
+        background-color: #8D7471;
+        border: 2px solid burlywood;
+        border-radius: 8px;
+        margin: 4px;
+        height: 96px;
+        width: 264px;
+    }
+    .nav-link {
+        font-size: 20px;
+        color: burlywood;
+    }
+    .asset-credits {
+        justify-self: flex-end;
+    }
+    .asset-credit {
+        background-color: #8D7471;
+        border: 2px solid burlywood;
+        border-radius: 8px;
+        color: #F8F4E3;
+        margin: 4px;
+        height: 96px;
+        width: 264px;
+    }
+    .asset-link {
+        color: burlywood;
+    }
+
+/* #endregion */
+
+/* #region CSS rules for the footer */
+#repoem-footer {
+    position: sticky;
+    bottom: 0px;
+    flex: 1;
     text-align: center;
-}
-#desktop-nav {
-    display: none;
-}
-#mobile-nav {
-    display: none;
-    position: absolute;
-    height: 100vh;
-}
-.nav-header {
-    font-size: 28px;
-    align-self: end;
-    color: #816F68;
-    text-shadow: 1px 1px burlywood;
-    padding: 2px;
-}
-
-.poem-search {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 2fr 1fr;
-    width: 80%;
-}
-
-/* #region for when search bar is actually implemented-- for after the completion of minimal project
-    .search-bar {
-    border: 2px solid #8D7471;
-    border-radius: 8px 0px 0px 8px;
-    min-width: 50px;
-    max-width: 350px;
-}
-
-.poem-search-button {
-    background-color: #8D7471;
-    border: 2px solid #8D7471;
-    border-radius: 0px 8px 8px 0px;
     color: #F8F4E3;
-} #endregion */
-
-.featured {
-    background-color: #8D7471;
+    background-color: #816F68;
     border: 2px solid burlywood;
-    border-radius: 8px;
+    border-radius: 8px 8px 0px 0px;
+}
+#github-link {
     color: #F8F4E3;
-    margin: 4px;
-    width: 80%;
-}
-
-.submission {
-    background-color: #8D7471;
-    border: 2px solid burlywood;
-    border-radius: 8px;
-    color: #F8F4E3;
-    margin: 4px;
-    width: 80%;
-}
-
-.poem-list {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    background-color: #8D7471;
-    border: 2px solid #816F68;
-    border-radius: 8px;
-    margin: 4px;
-    width: 80%;
-}
-
-.poem-entry {
-    background-color: #8D7471;
-    border: 2px solid burlywood;
-    border-radius: 8px;
-    color: #F8F4E3;
-    margin: 4px;
-}
-
-/* #region main content styling-- featured poems and all that jazz*/
-#content-container {
-    width: 95%;
-}
-
-.index-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    margin: 4px 0px 4px 0px;
-}
-
-/* featured poem bologna, very funny stuff here */
-.featured-poem {
-    background-color: #F8F4E3;
-    border: 4px solid #816F68;
-    box-shadow: 1px 1px burlywood;
-    border-radius: 4px;
-    margin: 4px 0px 4px 0px;
-    padding: 4px;
-}
-
-#featured-poem-prime {
-    font-size: 20px;
-}
-
-.featured-poem-container {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-}
-
-.featured-poem-video {
-    justify-self: center;
-    order: 1;
-    border: 4px solid #816F68;
-    border-radius: 4px;
-    height: 180px;
-    width: 260px;
-    margin: 4px;
-}
-
-.featured-poem-content {
-    order: -1;
-}
-
-.poem-link-featured {
-    color: #816F68;
-    font-size: 18px;
-}
-
-.poem-link {
-    color: #816F68;
-}
-
-#prime-poem-title {
-    font-size: 28px;
-}
-
-.next-two-poems {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
-
-/* featured poem two doodads */
-.poem-two-text {
-    display: none;
-}
-
-/* featured poem three doodads */
-
-.poem-three-text {
-    display: none;
 }
 /* #endregion */
 
-/* footer bologna */
-.repoem-footer {
-    text-align: center;
-    color: #F8F4E3;
-}
-
-.github-link {
-    color: #F8F4E3;
-}
-
-@media (min-width: 600px) {
-    body {
-        font-size: 18px;
-    }
-    #container {
-        grid-template-rows: 2fr 12fr 2fr;
-        margin: 28px;
-    }
-    .header-title {
+/* #region CSS Rules for Media Queries at 768px */
+@media (min-width: 768px) {
+    /* media queries for header */
+    #header-title {
         padding: 10px 40px 10px 40px;
         font-size: 50px;
     }
+    /* media queries for content container */
     #content-container {
-        display: grid;
-        grid-template-columns: 1fr 4fr;
+        flex-flow: row nowrap;
     }
-    .poem-nav-button {
+    /* media queries for nav */
+    #poem-nav-button {
         display: none;
     }
     #desktop-nav {
-        display: grid;
+        display: flex;
+        flex: 1;
+        left: 0px;
     }
     #mobile-nav {
         display: none;
     }
-    .featured-poem-container {
-        display: inline;
-    }
-
-    .featured-poem-content {
-        text-align: justify;
-    }
-
-    .featured-poem-video {
-        justify-self: auto;
-        float: inline-end;
-        height: 300px;
-        width: 480px;
-        margin: 8px;
-        margin-left: 15px;
-    }
 }
+
+/* #endregion */
