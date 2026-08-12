@@ -98,6 +98,7 @@ This is a primarily JavaScript/CSS application with HTML elements, with both a f
 | Sending Poem Data to the back-end | Top order is finishing up the work and making full circle the work done with the Submit page. The idea is to find a way to send and append data to poems.json using a POST request. |
 | Implementing the use of "React Router" | As it stands, the application is built using a couple of pages. I'd like to use React Browser Router to help condense it into one HTML page and one root container. Not completely familiar with it yet, so it will take some time. |
 | Figuring out a more accurate way to define words | A general definition is offered, but, it is hard to pinpoint the "correct" one with how the DictionaryAPI is set up. Hopefully there is an easy enough way to do it without an overtly convoluted method. |
+| Refine the onClick function for word definitions | While it gets most words, there are a few that end up split apart by accident due to the use of dashes and apostrophes. That might be a General Expressions problem, which I am not looking forward to. It will be ironed out eventually though.|
 
 ## Credits for Resources Used
 • Credit to DictionaryAPI-- it is easy to use and free! https://dictionaryapi.dev <br>

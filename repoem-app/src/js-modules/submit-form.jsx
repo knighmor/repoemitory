@@ -42,14 +42,14 @@ const SubmissionForm = () => {
                 formState: { isSubmitSuccessful, errors },} = useForm(
         {resolver: yupResolver(schema),
         defaultValues: {
-          id: poemsData.length,
+          id: 0,
           views: 0,
           likes: 0,
         },
         });
 
     // using useFormPersist for Form Hook to set up localStorage-- should help data persist
-        useFormPersist("storageKey", {
+        useFormPersist("formData", {
             watch,
             setValue,
             storage: window.localStorage,
@@ -85,59 +85,37 @@ const SubmissionForm = () => {
     }
     // #endregion
 
-    // #region setting up storing in local storage using cookies
-    const setFormSaveCookies = (name, field) => {
-        window.localStorage.setItem(name, field);
-    }
-    // #endregion
-
-    // #region area to toggle the embed region
-    // probably a better way to do this, but I am brain-farting-- using an if-else to handle embed toggle-- disabling this for right now, will figure out later
-
-    // const youtubeEmbedToggle =  (e) => {
-    //     if (event.target.checked) {
-    //         setEmbedToggle(!embedToggle);
-    //     }
-    //     else {
-    //         setEmbedToggle(!embedToggle);
-    //     }
-    // }
-    // #endregion
-
     return (
         <div id = "form-container">
         <form 
         onSubmit={handleSubmit(onSubmit)}
-        onSuccess={() => {
-            alert("Success!")
-        }} 
         onError={() => {
             alert("error")
         }}
         >
             <div className="form-part">
-                <label for="email">Your Email: </label>
+                <label htmlFor="email">Your Email: </label>
                 <input type="email" placeholder="Email here." {...register("email")} />
                 {errors.email && <p className="Error">{errors.email.message}</p>}
             </div>
             <div className="form-part">
-                <label for="name">Name of Poem: </label>
+                <label htmlFor="name">Name of Poem: </label>
                     {/* for later- {pattern: /^[A-Za-z]+$/i}  */}
-                <input placeholder="Poem name here." onChange={setFormSaveCookies} {...register("name")} />
+                <input placeholder="Poem name here." {...register("name")} />
                 {errors.name && <p className="Error">{errors.name.message}</p>}
             </div>
             <div className="form-part">
-                <label for="author">Name of Author: </label>
+                <label htmlFor="author">Name of Author: </label>
                 <input placeholder="Author name here." {...register("author")} />
                 {errors.author && <p className="Error">{errors.author.message}</p>}
             </div>
             <div className="form-part">
-                <label for="link">Poem Source: </label>
+                <label htmlFor="link">Poem Source: </label>
                 <input placeholder="Link to poem here." {...register("link")} />
                 {errors.link && <p className="Error">{errors.link.message}</p>}
             </div>
             <div className="form-part">
-                <label for="embed">Youtube Embed Here (Use "None" if not applicable/available): </label>
+                <label htmlFor="embed">Youtube Embed Here (Use "None" if not applicable/available): </label>
                 <input placeholder="Link to Youtube embed here." {...register("embed")}/>
                 {errors.embed && <p className="Error">{errors.embed.message}</p>}
             </div>
